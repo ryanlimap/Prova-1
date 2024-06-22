@@ -79,6 +79,9 @@ int main() {
     t_veiculo *veiculos = loadbdveics(nomearq);
 
     filtro(veiculos, "FIAT", 150);
+    filtro(veiculos, "TOYOTA", 150);
+    filtro(veiculos, "FORD", 150);
+    filtro(veiculos, "RENAULT", 150);
 
     free(veiculos);
     veiculos = NULL;
