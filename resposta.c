@@ -10,7 +10,7 @@ typedef struct t_veiculo {
 }t_veiculo;
 
 // Função para ler o arquivo e retornar um vetor dinâmico de t_veiculo
-t_veiculo* loadbdveics(const char* nomearq) {
+t_veiculo* loadbdveics(char* nomearq) {
     FILE* arquivo = fopen(nomearq, "r");
 
     t_veiculo *veiculos = (t_veiculo*)malloc(150 * sizeof(t_veiculo));
@@ -70,7 +70,7 @@ void filtro(t_veiculo *vet, char *marca_veiculo, int tam_vet) {
     char *str2 = ".txt";
 
     // Calcular o tamanho necessário para str1
-    size_t tamanho = strlen(marca_veiculo) + strlen(str2) + 1;
+    int tamanho = strlen(marca_veiculo) + strlen(str2) + 1;
 
     // Alocar memória para str1
     char *str1 = (char *)malloc(tamanho * sizeof(char));
@@ -106,7 +106,7 @@ void filtro(t_veiculo *vet, char *marca_veiculo, int tam_vet) {
 }
 
 int main() {
-    const char* nomearq = "bdveiculos.txt";
+    char* nomearq = "bdveiculos.txt";
 
     t_veiculo *veiculos = loadbdveics(nomearq);
 
