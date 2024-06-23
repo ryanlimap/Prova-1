@@ -18,17 +18,49 @@ t_veiculo* loadbdveics(const char* nomearq) {
     //debug
     if (veiculos == NULL) {
         printf("erro de alocação de vetor");
+        return NULL; // Adicione um retorno para evitar acesso a memória nula
     }
 
     for (int i = 0; i < 150; i++) {
+        // Lê a placa e remove o '\n'
         fgets(veiculos[i].placa, 150, arquivo);
-        veiculos[i].placa[strcspn(veiculos[i].placa, "\n")] = '\0';
+        char *p = veiculos[i].placa;
+        while (*p != '\0') {
+            if (*p == '\n') {
+                *p = '\0';
+            }
+            p++;
+        }
+
+        // Lê o modelo e remove o '\n'
         fgets(veiculos[i].modelo, 150, arquivo);
-        veiculos[i].modelo[strcspn(veiculos[i].modelo, "\n")] = '\0';
+        p = veiculos[i].modelo;
+        while (*p != '\0') {
+            if (*p == '\n') {
+                *p = '\0';
+            }
+            p++;
+        }
+
+        // Lê a marca e remove o '\n'
         fgets(veiculos[i].marca, 150, arquivo);
-        veiculos[i].marca[strcspn(veiculos[i].marca, "\n")] = '\0';
+        p = veiculos[i].marca;
+        while (*p != '\0') {
+            if (*p == '\n') {
+                *p = '\0';
+            }
+            p++;
+        }
+
+        // Lê os kilometros e remove o '\n'
         fgets(veiculos[i].kilometros, 150, arquivo);
-        veiculos[i].kilometros[strcspn(veiculos[i].kilometros, "\n")] = '\0';
+        p = veiculos[i].kilometros;
+        while (*p != '\0') {
+            if (*p == '\n') {
+                *p = '\0';
+            }
+            p++;
+        }
     }
     fclose(arquivo);
     return veiculos;
